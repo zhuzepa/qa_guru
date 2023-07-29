@@ -1,7 +1,6 @@
 from selene.support.shared import browser
 from selene import be, have
-from selenium import webdriver
-import pytest
+
 
 browser.config.hold_driver_at_exit = True
 
