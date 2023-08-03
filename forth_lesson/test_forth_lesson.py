@@ -1,4 +1,5 @@
 import math
+import random
 
 
 def test_greeting():
@@ -8,7 +9,8 @@ def test_greeting():
     name = "Анна"
     age = 25
     # TODO Сформируйте нужную строку
-    output = "Привет, " + name + "! " + "Тебе " + str(age) + " лет."
+    output = f"Привет, {name}! Тебе {age} лет."
+    print(output)
     # Проверяем результат
     assert output == "Привет, Анна! Тебе 25 лет."
 
@@ -29,19 +31,23 @@ def test_rectangle():
     area = a * b
     assert area == 200
 
-def test_circle():
-        """
-        Напишите программу, которая берет радиус круга и выводит на экран его длину и площадь.
-        Используйте константу PI
-        """
-        r = 23
-        # TODO сосчитайте площадь
-        area = math.pi * r * r
-        assert area == 1661.9025137490005
 
-        # TODO сосчитайте длину окружности
-        length = 2 * math.pi * r
-        assert length == 144.51326206513048
+def test_circle():
+    """
+    Напишите программу, которая берет радиус круга и выводит на экран его длину и площадь.
+    Используйте константу PI
+    """
+    r = 23
+    # TODO сосчитайте площадь
+    area = math.pi * r * r
+    print(area)
+    assert area == 1661.9025137490005
+
+    # TODO сосчитайте длину окружности
+    length = 2 * math.pi * r
+    print(length)
+    assert length == 144.51326206513048
+
 
 def test_random_list():
     """
@@ -49,7 +55,7 @@ def test_random_list():
     """
 
     # TODO создайте список
-    l = [20, 100, 43, 3, 54, 44, 76, 47, 99, 33]
+    l = [random.randint(1, 100) for l in range(10)]
     l.sort()
     print(l)
     assert len(l) == 10
@@ -67,18 +73,19 @@ def test_unique_elements():
     assert len(l) == 10
     assert l == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-def test_dicts():
-        """
-        Создайте словарь из двух списков.
-        Используйте первый список как ключи, а второй - как значения.
-        Выведите на экран все значения словаря.
-        Подсказка: используй встроенную функцию zip.
-        """
-        first = ["a", "b", "c", "d", "e"]
-        second = [1, 2, 3, 4, 5]
-        # TODO создайте словарь
-        d_zip = zip(first, second)
-        d = dict(d_zip)
 
-        assert isinstance(d, dict)
-        assert len(d) == 5
+def test_dicts():
+    """
+    Создайте словарь из двух списков.
+    Используйте первый список как ключи, а второй - как значения.
+    Выведите на экран все значения словаря.
+    Подсказка: используй встроенную функцию zip.
+    """
+    first = ["a", "b", "c", "d", "e"]
+    second = [1, 2, 3, 4, 5]
+    # TODO создайте словарь
+    d_zip = zip(first, second)
+    d = dict(d_zip)
+    print(d)
+    assert isinstance(d, dict)
+    assert len(d) == 5
