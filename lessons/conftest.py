@@ -14,16 +14,19 @@ def browser_setup():
     browser.close()
 
 
-@pytest.fixture(scope='session', autouse=True) #scope='function' вызывается для функции, autouse=True чтобы вызывалась автоматически
+@pytest.fixture(scope='function', autouse=True) #scope='function' вызывается для функции, autouse=True чтобы вызывалась автоматически
 def browser_management():
-    browser.config.base_url = 'https://todomvc.com/examples/emberjs'
-    #browser.config.driver_name = 'chrome'
-    browser.config.timeout = 2.0
-    driver_options = webdriver.ChromeOptions()
-    driver_options.add_argument("--headless")
-    browser.config.driver_options = driver_options
+    browser.config.base_url = 'https://demoqa.com/automation-practice-form'
+    browser.config.driver_name = 'chrome'
+    browser.config.timeout = 6.0
 
-    yield # передает выполнение тесту
+    #browser.config.type_by_js = True
+    #browser.config.click_by_js = True
+#driver_options = webdriver.ChromeOptions()
+    #driver_options.add_argument("--headless")
+   #browser.config.driver_options = driver_options
+
+    #yield # передает выполнение тесту
 
 
-    browser.quit()
+    #browser.quit()
