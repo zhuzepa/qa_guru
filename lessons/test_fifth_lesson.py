@@ -6,7 +6,7 @@ browser.config.hold_driver_at_exit = True
 
 
 def test_fifth_lesson():
-    browser.open('/')
+    browser.open('/automation-practice-form')
     browser.element('img[href=https://demoqa.com/')
     browser.element('img[src="/images/Toolsqa.jpg"]').should(be.visible)
     browser.element('.main-header').should(have.text('Practice Form'))
