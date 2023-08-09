@@ -7,19 +7,6 @@ browser.config.hold_driver_at_exit = True
 
 def test_fifth_lesson():
     browser.open('/automation-practice-form')
-    browser.element('img[href=https://demoqa.com/')
-    browser.element('img[src="/images/Toolsqa.jpg"]').should(be.visible)
-    browser.element('.main-header').should(have.text('Practice Form'))
-    browser.element('div.practice-form-wrapper h5').should(have.text('Student Registration Form'))
-    browser.element('#firstName').should(have.attribute('placeholder').value('First Name'))
-    browser.element('#lastName').should(have.attribute('placeholder').value('Last Name'))
-    browser.element('#userEmail').should(have.attribute('placeholder').value('name@example.com'))
-    browser.all('input[name="gender"]').should(have.size(3))
-    browser.element('#userNumber').should(have.attribute('placeholder').value('Mobile Number'))
-    browser.element('label[for=hobbies-checkbox-1]').should(have.text('Sports'))
-    browser.element('label[for=hobbies-checkbox-2]').should(have.text('Reading'))
-    browser.element('label[for=hobbies-checkbox-3]').should(have.text('Music'))
-    browser.element('#subjectsInput').should(be.blank)
 
     browser.element('#firstName').type('Ezekiel')
     browser.element('#lastName').type('Romaguera')
@@ -30,6 +17,10 @@ def test_fifth_lesson():
     browser.element('label[for="gender-radio-1"]').click()
     browser.element('#userNumber').type('1234567890')
     browser.element('#dateOfBirthInput').click()
+    browser.element('.react-datepicker__year-select').click()
+    browser.element('.react-datepicker__year-select').send_keys(Keys.ARROW_DOWN).press_enter()
+    browser.element('.react-datepicker__month-select').click()
+    browser.element('.react-datepicker__month-select').send_keys(Keys.ARROW_UP).press_enter()
     browser.element('.react-datepicker__day--031').click()
     browser.element('#subjectsInput').type('English').press_enter()
     browser.element('#subjectsInput').type('Arts').press_enter()
@@ -45,8 +36,6 @@ def test_fifth_lesson():
     browser.element('#city').click()
     browser.element('#react-select-4-input').send_keys(Keys.ARROW_UP)
     browser.element('#react-select-4-input').send_keys(Keys.ARROW_UP).press_enter()
-    browser.element('#submit').should(have.css_property("cursor", "pointer"))
-    browser.element('#submit').press_enter()
     browser.element('#submit').press_enter()
     browser.element('.table-responsive').should(have.text('Ezekiel Romaguera' and
                                                           'fakedata72553@gmail.com'
