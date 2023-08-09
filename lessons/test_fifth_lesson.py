@@ -47,6 +47,7 @@ def test_fifth_lesson():
     browser.element('#react-select-4-input').send_keys(Keys.ARROW_UP).press_enter()
     browser.element('#submit').should(have.css_property("cursor", "pointer"))
     browser.element('#submit').press_enter()
+    browser.element('#submit').press_enter()
     browser.element('.table-responsive').should(have.text('Ezekiel Romaguera' and
                                                           'fakedata72553@gmail.com'
                                                           and 'Male'
