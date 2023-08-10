@@ -35,14 +35,14 @@ def test_fifth_lesson():
     browser.element('#react-select-4-input').send_keys(Keys.ARROW_UP)
     browser.element('#react-select-4-input').send_keys(Keys.ARROW_UP).press_enter()
     browser.element('#submit').press_enter()
-    browser.element('.table-responsive').should(have.text('Ezekiel Romaguera' and
-                                                          'fakedata72553@gmail.com'
-                                                          and 'Male'
-                                                          and '1234567890'
-                                                          and '31 July,2023'
-                                                          and 'English, Arts'
-                                                          and 'Sports, Reading, Music'
-                                                          and 'test_img.jpg'
-                                                          and '841 Alvis Union'
-                                                          and 'Rajasthan Jaipur'))
+    browser.element('.table-responsive').should(have.text('Ezekiel Romaguera'))
+    browser.element('.table-responsive').should(have.text('fakedata72553@gmail.com'))
+    browser.element('.table-responsive').should(have.text('1234567890'))
+    browser.element('.table-responsive').should(have.text('14 December,1905'))
+    browser.element('.table-responsive').should(have.text('English, Arts'))
+    browser.element('.table-responsive').should(have.text('Sports, Reading, Music'))
+    browser.element('.table-responsive').should(have.text('test_img.jpg'))
+    browser.element('.table-responsive').should(have.text('841 Alvis Union'))
+    browser.element('.table-responsive').should(have.text('Rajasthan Jaipur'))
     browser.element('#closeLargeModal').click()
+
