@@ -14,6 +14,7 @@ def browser_management():
     browser.config.base_url = 'https://demoqa.com'
     browser.config.driver_name = 'chrome'
     browser.config.timeout = 6.0
+    #browser.config.click_by_js = True
 
     yield  # передает выполнение тесту
 
