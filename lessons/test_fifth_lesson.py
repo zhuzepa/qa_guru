@@ -1,13 +1,12 @@
+import random
+
 from selene import browser, be, have, command
 import os
 from selenium.webdriver import Keys
 
-browser.config.hold_driver_at_exit = True
-
 
 def test_fifth_lesson():
     browser.open('/automation-practice-form')
-
     browser.element('#firstName').type('Ezekiel')
     browser.element('#lastName').type('Romaguera')
     browser.element('#userEmail').type('fakedata72553@gmail.com')
@@ -18,10 +17,14 @@ def test_fifth_lesson():
     browser.element('#userNumber').type('1234567890')
     browser.element('#dateOfBirthInput').click()
     browser.element('.react-datepicker__year-select').click()
-    browser.element('.react-datepicker__year-select').send_keys(Keys.ARROW_DOWN).press_enter()
+    random_year = random.randint(1900, 2101)
+    random_year_str = str(random_year)
+    browser.all('.react-datepicker__year-select>option').element_by(have.exact_text(random_year_str)).click()
     browser.element('.react-datepicker__month-select').click()
     browser.element('.react-datepicker__month-select').send_keys(Keys.ARROW_UP).press_enter()
-    browser.element('.react-datepicker__day--031').click()
+    random_day = random.randint(1, 30)
+    random_day_str = str(random_day)
+    browser.all('.react-datepicker__day').element_by(have.exact_text(random_day_str)).click()
     browser.element('#subjectsInput').type('English').press_enter()
     browser.element('#subjectsInput').type('Arts').press_enter()
     browser.element('label[for=hobbies-checkbox-1]').perform(command.js.click)
