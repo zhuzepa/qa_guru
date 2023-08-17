@@ -6,10 +6,10 @@ def test_dark_theme_by_time():
     """
     Протестируйте правильность переключения темной темы на сайте в зависимости от времени
     """
-    current_time = time(hour=23)
+    current_time = time(hour=21)
 
     # TODO переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
-    if datetime.time(22) <= current_time and current_time <= datetime.time(6):
+    if datetime.time(22) > current_time and current_time > datetime.time(6):
         is_dark_theme = False
     else:
         is_dark_theme = True
@@ -29,7 +29,7 @@ def test_dark_theme_by_time_and_user_choice():
     # TODO переключите темную тему в зависимости от времени суток,
     #  но учтите что темная тема может быть включена вручную
     if dark_theme_enabled_by_user is None:
-        if datetime.time(22) >= current_time or current_time <= datetime.time(6):
+        if datetime.time(22) > current_time or current_time > datetime.time(6):
             is_dark_theme = True
         else:
             is_dark_theme = False
@@ -91,17 +91,18 @@ def get_readable_string(func, *args):
     name = func.__name__.title().replace('_', ' ')
     params = str(list(args)).replace("'", "")
     return f'{name} {params}'
-
+    print(actual_result)
 
 def open_browser(browser_name):
     actual_result = get_readable_string(open_browser, browser_name)
     assert actual_result == "Open Browser [Chrome]"
-
+    print(actual_result)
 
 def go_to_companyname_homepage(page_url):
     actual_result = get_readable_string(go_to_companyname_homepage, page_url)
     assert actual_result == "Go To Companyname Homepage [https://companyname.com]"
-
+    print(actual_result)
 def find_registration_button_on_login_page(page_url, button_text):
     actual_result = get_readable_string(find_registration_button_on_login_page, page_url, button_text)
     assert actual_result == "Find Registration Button On Login Page [https://companyname.com/login, Register]"
+    print(actual_result)
