@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 from selene import browser
 
-
+'''
 @pytest.fixture
 def browser_setup():
     driver = webdriver.Chrome()
@@ -28,3 +28,11 @@ def browser_management():
     yield  # передает выполнение тесту
 
     browser.quit()
+'''
+
+@pytest.fixture()
+def demoqa():
+    browser.config.base_url = 'https://demoqa.com'
+    driver_options = webdriver.ChromeOptions()
+    driver_options.add_argument("--headless")
+    browser.config.driver_options = driver_options
