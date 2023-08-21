@@ -83,7 +83,7 @@ def test_find_suitable_user():
 # "Open Browser [Chrome]"
 
 def test_readable_function():
-    open_browser(browser_name="Chrome")
+    open_browser(browser_name="Chrome")  # открываем браузер
     go_to_companyname_homepage(page_url="https://companyname.com")
     find_registration_button_on_login_page(page_url="https://companyname.com/login", button_text="Register")
 
@@ -100,11 +100,9 @@ def open_browser(browser_name):
     assert actual_result == "Open Browser [Chrome]"
 
 
-
 def go_to_companyname_homepage(page_url):
     actual_result = get_readable_string(go_to_companyname_homepage, page_url)
     assert actual_result == "Go To Companyname Homepage [https://companyname.com]"
-
 
 
 def find_registration_button_on_login_page(page_url, button_text):
