@@ -1,6 +1,5 @@
-from selene import browser, be, have, command
+from selene import browser, have, command
 import os
-from selenium.webdriver import Keys
 
 
 def test_fifth_lesson(practice_form):
@@ -35,12 +34,9 @@ def test_fifth_lesson(practice_form):
     browser.all('[id^=react-select][id*=option]').element_by(
         have.exact_text('Haryana')
     ).click()
-    # browser.element('#react-select-3-input').send_keys(Keys.ARROW_DOWN)
-    # browser.element('#react-select-3-input').send_keys(Keys.ARROW_DOWN)
-    # browser.element('#react-select--input').send_keys(Keys.ARROW_DOWN).press_enter()
+
     browser.element('#city').click()
-    # browser.element('#react-select-4-input').send_keys(Keys.ARROW_UP)
-    # browser.element('#react-select-4-input').send_keys(Keys.ARROW_UP).press_enter()
+
     browser.all('[id^=react-select][id*=option]').element_by(
         have.exact_text('Karnal')
     ).click()
