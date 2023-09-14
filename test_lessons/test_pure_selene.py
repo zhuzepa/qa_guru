@@ -1,7 +1,7 @@
 from selene import browser, be, by
 
 
-def test_github(seting_br):
+def test_github(seting_browser):
     browser.open('/')
 
     browser.element('.header-search-button').click()
